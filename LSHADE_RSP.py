@@ -175,7 +175,7 @@ class LSHADE_RSP:
                 if self.num_evals < 0.6 * self.max_evals and F > 0.7:
                     F = 0.7
 
-                # current-to-pbest/1变异策略
+                # current-to-pbest-w/1变异策略
                 mutant = self.mutant(F, i, p_best_indices, rank_probs)
 
                 # 交叉操作
@@ -221,7 +221,7 @@ class LSHADE_RSP:
             else:
                 self.F_memory[self.hist_idx] = self.F_memory[self.hist_idx]
 
-            # CR 部分
+            # CR部分
             if np.any(S_CR):
                 if np.max(S_CR) != 0:
                     CR_lehmer = np.sum(np.array(S_CR) ** 2 * S_weights) / np.sum(np.array(S_CR) * S_weights)
